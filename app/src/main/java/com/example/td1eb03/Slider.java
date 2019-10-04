@@ -52,10 +52,36 @@ public class Slider extends View {
 
     private void init(Context context, AttributeSet attributeSet) {
 
-        //Initialisation des dimensions par defaut en pixel
-    mbarLength=dpToPixel(DEFAULT_BAR_LENGTH);
+    //Initialisation des dimensions par defaut en pixel
+    mBarLength=dpToPixel(DEFAULT_BAR_LENGTH);
     mCursorDiameter=dpToPixel(DEFAULT_CURSOR_DIAMETER);
-    mbarWidth= dpToPixel(DEFAULT_BAR_WIDTH);
+    mBarWidth= dpToPixel(DEFAULT_BAR_WIDTH);
+
+    mCursorPaint=new Paint();
+    mBarPaint=new Paint();
+    mValueBarPaint=new Paint();
+
+    //suppression du repliment
+    mCursorPaint.setAntiAlias(true);
+    mBarPaint.setAntiAlias(true);
+    mValueBarPaint.setAntiAlias(true);
+
+    //application du style (plein)
+    mValueBarPaint.setStyle(Paint.Style.STROKE);
+    mBarPaint.setStyle(Paint.Style.STROKE);
+    mValueBarPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+
+    mBarPaint.setStrokeCap(Paint.Cap.ROUND);
+    mValueBarPaint.setStrokeCap(Paint.Cap.ROUND);
+
+    //couleurs par defaut
+        mDisabledColor=ContextCompat.getColor(context, R.color.colorDisabled;
+        mCursorColor=ContextCompat.getColor(context, R.color.colorAccent;
+        mBarColor=ContextCompat.getColor(context, R.color.colorPrimary;
+        mValueBarColor=ContextCompat.getColor(context, R.color.colorDisabled;
+
+        mBarPaint.setStrokeWidth(mBarWidth);
+        mValueBarPaint.setStrokeWidth(mBarWidth);
     }
 
     private float dpToPixel(float valueInDp){
